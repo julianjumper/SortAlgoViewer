@@ -3,7 +3,8 @@ Ein Programm, das Sortieralgorithmen visualisiert. Weitere Algorithmen werden be
 <br>
 Nachdem ein Algorithmus und die Delay (Verzögerung zwischen den einzelnen Stufen des Algorithmus, bzw. dessen Visualisierung) ausgewählt 
 und auf den Start-Knopf gedrückt wurde, beginnt die Visualisierung. <br>
-Dabei werden zusätzliche Informationen zu den Algorithmen angezeigt. 
+Dabei werden zusätzliche Informationen zu den Algorithmen angezeigt. <br>
+Mit der Q-Taste kann die Visualisierung unterbrochen werden und das Menü wird erneut aufgerufen. 
 
 ---
 
