@@ -6,6 +6,7 @@ import jmjumper.sortalgoviewer.gui.SortArray;
 public class MergeSort implements AbstractAlgo {
 
     private long stepDelay = 20;
+    private boolean activated;
 
     private int[] getSubArray(SortArray array, int begin, int size) {
         int arr[] = new int[size];
@@ -62,6 +63,11 @@ public class MergeSort implements AbstractAlgo {
         int left = 0;
         int right = array.arraySize() - 1;
         mergeSort(array, left, right);
+    }
+
+    @Override
+    public void setActivated(boolean activated) {
+        this.activated = activated;
     }
 
     @Override

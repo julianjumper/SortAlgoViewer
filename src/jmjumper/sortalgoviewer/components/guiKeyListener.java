@@ -11,18 +11,15 @@ import java.awt.event.KeyListener;
 public class guiKeyListener implements KeyListener {
 
     private GUI parent;
-    private ViewerScreen viewerScreen;
 
-    public guiKeyListener(GUI parent, ViewerScreen viewerScreen) {
+    public guiKeyListener(GUI parent) {
         this.parent = parent;
-        this.viewerScreen = viewerScreen;
     }
-
 
     @Override
     public void keyReleased(KeyEvent e) {
         switch (e.getKeyCode()) {
-            case (KeyEvent.VK_Q) -> viewerScreen.closeByButton();
+            case (KeyEvent.VK_Q) -> parent.deactivateAlgorithm();
         }
     }
 

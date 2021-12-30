@@ -15,6 +15,8 @@ public interface AbstractAlgo {
 
     void runSort(SortArray array);
 
+    void setActivated (boolean activated);
+
     String getBestCase ();
 
     String getAverageCase ();

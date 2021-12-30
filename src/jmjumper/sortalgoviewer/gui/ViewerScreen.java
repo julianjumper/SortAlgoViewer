@@ -9,7 +9,7 @@ import java.awt.*;
 public class ViewerScreen extends Screen {
 
     private final GUI gui;
-    private final SortArray arrayPanel;
+    private SortArray arrayPanel;
     private final AbstractAlgo algorithm;
     private int delay;
 
@@ -40,18 +40,8 @@ public class ViewerScreen extends Screen {
         sleepyMethod();
     }
 
-    public void closeByButton() { // aufgerufen durch guiKeyListener
-        arrayPanel.setUnmuted(false);
-        arrayPanel.resetAllColors();
-        arrayPanel.highlightArray();
-        arrayPanel.resetAllColors();
-        sleepyMethod();
-        gui.popScreen();
-    }
-
     @Override
     public void startUp() {
-        gui.addKeyListener(new guiKeyListener(gui, this));
         SwingWorker<Void, Void> swingWorker = new SwingWorker<>() { // reminder an mich selbst: swingworker ist sowas wie Threading für GUIs
             @Override
             protected Void doInBackground() {
@@ -62,6 +52,7 @@ public class ViewerScreen extends Screen {
                 }
                 arrayPanel.setUnmuted(true);
                 arrayPanel.setAlgo(algorithm);
+                algorithm.setActivated(true);
                 shuffleAndWait();
                 algorithm.runSort(arrayPanel);
                 arrayPanel.resetAllColors();
@@ -80,6 +71,10 @@ public class ViewerScreen extends Screen {
         swingWorker.execute();
     }
 
+    @Override
+    public void finish() {
+        algorithm.setActivated(false);
+    }
 
 
 }

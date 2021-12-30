@@ -71,7 +71,7 @@ public class mainScreen extends Screen {
     }
 
     private void createInternalWindow () {
-        new InternalWindow(this);
+        new InternalWindow(this).restart();
     }
 
     public void setAlgorithm(AbstractAlgo algo) {
@@ -84,5 +84,10 @@ public class mainScreen extends Screen {
     }
 
     @Override
-    public void startUp() { }
+    public void startUp() {
+    }
+
+    @Override
+    public void finish() {
+    }
 }

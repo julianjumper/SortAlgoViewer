@@ -6,14 +6,16 @@ import jmjumper.sortalgoviewer.gui.SortArray;
 public class InsertionSort implements AbstractAlgo {
 
     long delay = 20;
+    private boolean activated;
 
     void insertionSort(SortArray array)
     {
         int n = array.arraySize();
         for (int i = 1; i < n; ++i) {
+            if (!activated) return;
             int key = array.getValue(i);
             int j = i - 1;
-            while (j >= 0 && array.getValue(j) > key) {
+            while (j >= 0 && array.getValue(j) > key && activated) {
                 array.updateAtIndex(j + 1, array.getValue(j), delay, true);
                 j = j - 1;
             }
@@ -40,6 +42,11 @@ public class InsertionSort implements AbstractAlgo {
     @Override
     public void runSort(SortArray array) {
         insertionSort(array);
+    }
+
+    @Override
+    public void setActivated(boolean activated) {
+        this.activated = activated;
     }
 
     @Override

@@ -46,6 +46,10 @@ public class InternalWindow extends JFrame {
         setVisible(true);
     }
 
+    public void restart() {
+        createAlgoList();
+    }
+
     private void createAlgoList() {
         algoList = new ArrayList<>();
         algoList.add(new MergeSort());

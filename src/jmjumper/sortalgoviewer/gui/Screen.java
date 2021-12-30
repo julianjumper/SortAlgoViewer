@@ -14,5 +14,6 @@ public abstract class Screen extends JPanel {
     }
 
     public abstract void startUp ();
+    public abstract void finish ();
 
 }

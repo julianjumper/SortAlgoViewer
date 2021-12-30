@@ -9,12 +9,13 @@ import java.util.Random;
 
 public class BogoSort implements AbstractAlgo {
     long delay = 20;
+    private boolean activated;
 
     private void bogoSort (SortArray array) {
         Random r = new Random(); // Du weißt, dass ein Sortier-Algorithmus gut ist, wenn er mit Random() beginnt
 
 
-        while (!isSorted(array)) {
+        while (!isSorted(array) && activated) {
             int a = r.nextInt(array.arraySize());
             int b = r.nextInt(array.arraySize());
             int temp = array.getValue(a);
@@ -49,6 +50,11 @@ public class BogoSort implements AbstractAlgo {
     @Override
     public void runSort(SortArray array) {
         bogoSort(array);
+    }
+
+    @Override
+    public void setActivated(boolean activated) {
+        this.activated = activated;
     }
 
     @Override

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class GUI extends JFrame {
 
     private static final int WIN_WIDTH = 1200, WIN_HEIGHT = 800;
-    private final ArrayList<Screen> screens;
+    public final ArrayList<Screen> screens;
 
     public GUI() {
         super("Sort-Algorithm-Viewer");
@@ -19,6 +19,7 @@ public class GUI extends JFrame {
         setPreferredSize(new Dimension(WIN_WIDTH, WIN_HEIGHT));
         setSize(WIN_WIDTH, WIN_HEIGHT);
         setLocationRelativeTo(null);
+        addKeyListener(new guiKeyListener(this));
         // setResizable(false);
         screens = new ArrayList<>();
 
@@ -38,6 +39,7 @@ public class GUI extends JFrame {
             Screen currentScreen = getCurrentScreen();
             screens.remove(currentScreen);
             remove(currentScreen);
+            System.out.println(screens.size());
             if (!screens.isEmpty()) {
                 Screen newCurrentScreen = getCurrentScreen();
                 setContentPane(newCurrentScreen);
@@ -47,6 +49,10 @@ public class GUI extends JFrame {
                 dispose();
             }
         }
+    }
+
+    public void deactivateAlgorithm () {
+        getCurrentScreen().finish();
     }
 
     private Screen getCurrentScreen() {

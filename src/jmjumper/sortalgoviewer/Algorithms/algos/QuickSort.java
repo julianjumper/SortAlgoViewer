@@ -5,10 +5,10 @@ import jmjumper.sortalgoviewer.gui.SortArray;
 
 public class QuickSort implements AbstractAlgo {
 
-
     private long stepDelay = 20;
     private SortArray array;
     private int intArr[];
+    private boolean activated;
 
     public void quickSort(int l, int r) {
         int q;
@@ -24,7 +24,7 @@ public class QuickSort implements AbstractAlgo {
         int i, j, x = intArr[(l + r) / 2];
         i = l - 1;
         j = r + 1;
-        while (true) {
+        while (activated) {
             do {
                 i++;
             } while (intArr[i] < x);
@@ -43,6 +43,7 @@ public class QuickSort implements AbstractAlgo {
                 return j;
             }
         }
+        return 0;
     }
 
 
@@ -70,6 +71,11 @@ public class QuickSort implements AbstractAlgo {
             intArr[i] = array.getValue(i);
         }
         quickSort(0, array.arraySize() - 1);
+    }
+
+    @Override
+    public void setActivated(boolean activated) {
+        this.activated = activated;
     }
 
     @Override
