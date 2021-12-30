@@ -1,16 +1,13 @@
 package jmjumper.sortalgoviewer.components;
 
 import jmjumper.sortalgoviewer.gui.GUI;
-import jmjumper.sortalgoviewer.gui.SortArray;
-import jmjumper.sortalgoviewer.gui.ViewerScreen;
 
-import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class guiKeyListener implements KeyListener {
 
-    private GUI parent;
+    private final GUI parent;
 
     public guiKeyListener(GUI parent) {
         this.parent = parent;
@@ -18,9 +15,9 @@ public class guiKeyListener implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case (KeyEvent.VK_Q) -> parent.deactivateAlgorithm();
-        }
+        int keyCode = e.getKeyCode();
+        if (keyCode == KeyEvent.VK_Q || keyCode == KeyEvent.VK_ESCAPE)
+            parent.deactivateAlgorithm();
     }
 
     // Nicht benutzt

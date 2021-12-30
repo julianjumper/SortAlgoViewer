@@ -16,13 +16,12 @@ import java.util.List;
 public class InternalWindow extends JFrame {
 
     private JList<String> list;
-    private JPanel listPanel;
-    private GridBagConstraints c;
-    private mainScreen parent;
+    private final JPanel listPanel;
+    private final GridBagConstraints c;
+    private final mainScreen parent;
     private List<AbstractAlgo> algoList;
     private String listData[];
     private JSpinner spinnerDelay;
-    private JLabel labelDelay;
 
     public InternalWindow(mainScreen parent) {
         super("Select algorithm...");
@@ -82,7 +81,7 @@ public class InternalWindow extends JFrame {
 
     private void addSpinnerInput() {
         c.gridwidth = 100;
-        labelDelay = new JLabel("Delay in ms:");
+        JLabel labelDelay = new JLabel("Delay in ms:");
 
         SpinnerNumberModel spinnerModel = new SpinnerNumberModel(20, 0, 100, 1);
         spinnerDelay = new JSpinner(spinnerModel);

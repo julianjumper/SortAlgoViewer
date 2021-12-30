@@ -3,7 +3,6 @@ package jmjumper.sortalgoviewer.gui;
 import jmjumper.sortalgoviewer.Algorithms.AbstractAlgo;
 import jmjumper.sortalgoviewer.components.Button;
 import jmjumper.sortalgoviewer.components.DefaultFont;
-import jmjumper.sortalgoviewer.components.guiKeyListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -89,5 +88,6 @@ public class mainScreen extends Screen {
 
     @Override
     public void finish() {
+        mainGui.popScreen();
     }
 }

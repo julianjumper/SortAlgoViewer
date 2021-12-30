@@ -1,7 +1,6 @@
 package jmjumper.sortalgoviewer.gui;
 
 import jmjumper.sortalgoviewer.Algorithms.AbstractAlgo;
-import jmjumper.sortalgoviewer.components.guiKeyListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,9 +8,8 @@ import java.awt.*;
 public class ViewerScreen extends Screen {
 
     private final GUI gui;
-    private SortArray arrayPanel;
+    private final SortArray arrayPanel;
     private final AbstractAlgo algorithm;
-    private int delay;
 
     public ViewerScreen(GUI gui, AbstractAlgo algorithm, int delay) {
         super(gui);
@@ -22,7 +20,6 @@ public class ViewerScreen extends Screen {
         add(arrayPanel, BorderLayout.CENTER);
 
         this.algorithm = algorithm;
-        this.delay = delay;
         algorithm.setDelay(delay);
     }
 

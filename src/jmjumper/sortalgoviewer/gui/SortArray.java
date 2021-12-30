@@ -53,7 +53,7 @@ public class SortArray extends JPanel {
         int tempValue = array[indexFrom];
         array[indexFrom] = array[indexTo];
         array[indexTo] = tempValue;
-        doUpdate(123, delay, step);
+        doUpdate(delay, step);
     }
 
     public void updateAtIndex(int index, int value, long delay, boolean step) {
@@ -61,11 +61,11 @@ public class SortArray extends JPanel {
         arrayColors[index] = 100;
         if (isUnmuted)
             playSound.playSound(value);
-        doUpdate(value, delay, step);
+        doUpdate(delay, step);
         repaint();
     }
 
-    private void doUpdate(int value, long delay, boolean step) {
+    private void doUpdate(long delay, boolean step) {
         repaint();
         try {
             Thread.sleep(delay);

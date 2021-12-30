@@ -4,8 +4,6 @@ import jmjumper.sortalgoviewer.components.guiKeyListener;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 public class GUI extends JFrame {
@@ -20,7 +18,6 @@ public class GUI extends JFrame {
         setSize(WIN_WIDTH, WIN_HEIGHT);
         setLocationRelativeTo(null);
         addKeyListener(new guiKeyListener(this));
-        // setResizable(false);
         screens = new ArrayList<>();
 
         setVisible(true);
@@ -39,7 +36,6 @@ public class GUI extends JFrame {
             Screen currentScreen = getCurrentScreen();
             screens.remove(currentScreen);
             remove(currentScreen);
-            System.out.println(screens.size());
             if (!screens.isEmpty()) {
                 Screen newCurrentScreen = getCurrentScreen();
                 setContentPane(newCurrentScreen);
@@ -60,7 +56,6 @@ public class GUI extends JFrame {
     }
 
     public void startingPoint() {
-        // pushScreen (new ViewerScreen(this));
         pushScreen(new mainScreen(this));
         pack();
     }
